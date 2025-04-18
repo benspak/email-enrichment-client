@@ -25,8 +25,9 @@ const UploadForm = ({ setContacts, uploading, setUploading }) => {
       setFile(null);
       setEmail('');
     } catch (err) {
+      const msg = err.response?.data?.error || 'Something went wrong.';
       console.error(err);
-      setMessage({ type: 'danger', text: 'Upload failed. Please try again.' });
+      setMessage({ type: 'danger', text: `Upload error: ${msg}` });
     } finally {
       setUploading(false);
     }
