@@ -10,7 +10,7 @@ const EnrichmentTable = ({ contacts }) => {
             <th>Company</th>
             <th>Position</th>
             <th>LinkedIn</th>
-            <th>Verified Email</th>
+            <th>Guessed Email</th>
             <th>Guessed Emails</th>
             <th>Verified?</th>
           </tr>
@@ -22,7 +22,7 @@ const EnrichmentTable = ({ contacts }) => {
               <td>{c.company}</td>
               <td>{c.position}</td>
               <td><a href={c.linkedinUrl} target="_blank" rel="noreferrer">Profile</a></td>
-              <td>{c.verifiedEmail || '—'}</td>
+              <td>{c.guessedEmail || '—'}</td>
               <td>
                 {c.guessedEmails?.length > 0 ? (
                   <ul className="mb-0 ps-3">
@@ -34,7 +34,7 @@ const EnrichmentTable = ({ contacts }) => {
                   </ul>
                 ) : '—'}
               </td>
-              <td>{c.verifiedEmail ? '✅ Yes' : '❌ No'}</td>
+              <td>{c.guessedEmail ? '✅ Yes' : '❌ No'}</td>
             </tr>
           ))}
         </tbody>

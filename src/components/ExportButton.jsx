@@ -2,14 +2,14 @@ import React from 'react';
 
 const ExportButton = ({ contacts }) => {
   const downloadCSV = () => {
-    const headers = ['First Name', 'Last Name', 'Company', 'Position', 'LinkedIn URL', 'Verified Email'];
+    const headers = ['First Name', 'Last Name', 'Company', 'Position', 'LinkedIn URL', 'Guessed Email'];
     const rows = contacts.map(c => [
       c.firstName,
       c.lastName,
       c.company,
       c.position,
       c.linkedinUrl,
-      c.verifiedEmail || ''
+      c.guessedEmail || ''
     ]);
 
     const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
